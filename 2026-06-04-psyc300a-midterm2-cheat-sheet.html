@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PSYC 300A Midterm 2 — Cheat Sheet</title>
+<style>
+  @page { size: letter; margin: 0.4in; }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:#fff;color:#000;}
+  body{font-family:"Helvetica Neue",Arial,sans-serif; font-size:8.7pt; line-height:1.28;}
+  .mono{font-family:"SF Mono",Menlo,Consolas,"Courier New",monospace;}
+  .sheet{
+    width:7.7in; min-height:10.2in; margin:0 auto; padding:0;
+    column-count:2; column-gap:0.28in; column-fill:auto;
+  }
+  .sheet + .sheet{ break-before:page; }
+  h1.title{
+    column-span:all; font-size:12.5pt; margin:0 0 5px; padding:0 0 4px;
+    border-bottom:2.5px solid #000; text-align:center; letter-spacing:.01em;
+  }
+  h1.title small{display:block; font-size:8pt; font-weight:600; letter-spacing:.06em; text-transform:uppercase; margin-top:2px;}
+  .blk{ break-inside:avoid; border:1px solid #000; border-radius:4px; padding:4px 7px 6px; margin:0 0 6px; }
+  .blk h2{ font-size:8.4pt; text-transform:uppercase; letter-spacing:.05em; margin:0 0 3px; padding-bottom:2px; border-bottom:1.2px solid #000; }
+  .blk p{margin:3px 0;} .blk ul{margin:2px 0; padding-left:14px;} .blk li{margin:1.5px 0;}
+  .f{ font-family:"SF Mono",Menlo,Consolas,"Courier New",monospace; font-size:8.4pt; display:block; margin:2px 0; }
+  .flag{ font-weight:800; } /* ⚑ items: not on provided sheet */
+  .note{font-style:italic;}
+  table{border-collapse:collapse; width:100%; margin:3px 0; font-size:7.9pt;}
+  th,td{border:1px solid #000; padding:1.5px 4px; text-align:left; vertical-align:top;}
+  th{font-weight:700;} td.c,th.c{text-align:center;}
+  .tight li{margin:1px 0;}
+  .lead{font-weight:800;}
+  .star{font-weight:800; font-size:9pt;}
+  .legend{column-span:all; font-size:7.6pt; margin:0 0 6px; text-align:center; font-style:italic;}
+  hr.col{border:none; border-top:1px dashed #000; margin:5px 0;}
+  @media screen{
+    body{background:#888; padding:18px;}
+    .sheet{background:#fff; box-shadow:0 2px 10px rgba(0,0,0,.4); padding:0.4in; margin:0 auto 22px; width:8.5in; min-height:11in;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== SHEET 1 (front) ===================== -->
+<section class="sheet">
+  <h1 class="title">PSYC 300A · MIDTERM 2 CHEAT SHEET<small>Correlation &amp; Regression · ⚑ = NOT on the prof's provided sheet — know these</small></h1>
+
+  <div class="blk">
+    <h2>① Core formulas (build-up)</h2>
+    <span class="f flag">⚑ Mean:&nbsp; x̄ = Σx / N</span>
+    <span class="f flag">⚑ Sum of Squares:&nbsp; SS = Σ(x − x̄)²</span>
+    <span class="f flag">⚑ Variance:&nbsp; SD² = SS / N</span>
+    <span class="f flag">⚑ Std Dev:&nbsp; SD = √(SS / N)</span>
+    <span class="f">SP = Σ(x − x̄)(y − ȳ)</span>
+    <span class="f">COV = SP / N</span>
+    <span class="f">r = COV / (SD<sub>x</sub> · SD<sub>y</sub>)</span>
+    <p class="note">Do SS &amp; SD for X and Y separately.</p>
+  </div>
+
+  <div class="blk">
+    <h2>② Calculation order (the table)</h2>
+    <p>One table, columns:</p>
+    <p class="mono" style="font-size:7.6pt;">X · Y · (x−x̄) · (y−ȳ) · (x−x̄)² · (y−ȳ)² · (x−x̄)(y−ȳ)</p>
+    <p>Sum the last 3 cols → <b>SS<sub>x</sub>, SS<sub>y</sub>, SP</b>. Then SD<sub>x</sub>, SD<sub>y</sub>, COV, r.</p>
+    <p class="note">Round 4 dp during, 2 dp final.</p>
+  </div>
+
+  <div class="blk">
+    <h2>③ Describe a correlation</h2>
+    <ul class="tight">
+      <li><b>Direction</b> + / − / none</li>
+      <li><b>Shape</b> linear / curvilinear</li>
+      <li><b>Strength</b> weak/mod/strong (subjective)</li>
+      <li><b>Magnitude</b> = r value (−1 to +1; objective)</li>
+    </ul>
+    <p class="lead">In words = 3 terms: strength + direction + shape (e.g. "strong, negative, linear").</p>
+  </div>
+
+  <div class="blk">
+    <h2>④ Interpret r</h2>
+    <table>
+      <tr><th>Human behaviour |r|</th><th>=</th></tr>
+      <tr><td>&lt; .10</td><td>none</td></tr>
+      <tr><td>.10–.30</td><td>weak</td></tr>
+      <tr><td>&gt;.30–.50</td><td>moderate</td></tr>
+      <tr><td>&gt; .50</td><td>strong</td></tr>
+    </table>
+    <table>
+      <tr><th>Reliability |r|</th><th>=</th></tr>
+      <tr><td>&gt; .85</td><td>very desirable</td></tr>
+      <tr><td>.70–.85</td><td>acceptable</td></tr>
+      <tr><td>&lt; .70</td><td>poor</td></tr>
+    </table>
+  </div>
+
+  <div class="blk">
+    <h2>⑤ Which correlation? (by scale)</h2>
+    <table>
+      <tr><th></th><th class="c">Y Nom</th><th class="c">Y Ord</th><th class="c">Y I/R</th></tr>
+      <tr><th>X Nom</th><td class="c">Phi φ</td><td class="c">Spear</td><td class="c">Pt-Bis</td></tr>
+      <tr><th>X Ord</th><td class="c">Spear</td><td class="c">Spear</td><td class="c">Spear</td></tr>
+      <tr><th>X I/R</th><td class="c">Pt-Bis</td><td class="c">Spear</td><td class="c">Pearson</td></tr>
+    </table>
+    <ul class="tight">
+      <li>Both interval/ratio → <b>Pearson r</b></li>
+      <li>Any ordinal → <b>Spearman r<sub>s</sub></b></li>
+      <li>1 dichot-nominal + I/R → <b>Point-Biserial r<sub>pb</sub></b></li>
+      <li>Both dichot-nominal → <b>Phi φ</b></li>
+    </ul>
+    <p><b>Also use Spearman</b> if I/R data is <b>curvilinear</b> or <b>heteroscedastic</b> (ranks the scores, pulls outliers in).</p>
+  </div>
+
+  <div class="blk">
+    <h2>⑥ Factors affecting r</h2>
+    <p class="lead">Does NOT affect r: sample size (N cancels).</p>
+    <ol class="tight" style="padding-left:16px;">
+      <li>Real strength of relationship</li>
+      <li>Sampling error (↑ or ↓ r)</li>
+      <li>3rd variable (corr ≠ cause)</li>
+      <li>Heterogeneous sample (subgroups)</li>
+      <li>Restricted/truncated range</li>
+      <li>Non-linearity → r <b>under</b>estimates</li>
+      <li>Heteroscedasticity → SD↑ so r↓</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== SHEET 2 (back) ===================== -->
+<section class="sheet">
+  <h1 class="title">REGRESSION — predict Y′ from X<small>Same engine as r, taken one step further · ⚑ = not on provided sheet</small></h1>
+
+  <div class="blk">
+    <h2>⑦ Regression formulas (provided)</h2>
+    <span class="f">Slope:&nbsp; b<sub>y</sub> = r · (SD<sub>y</sub> / SD<sub>x</sub>)</span>
+    <span class="f">Intercept:&nbsp; a<sub>y</sub> = ȳ − b<sub>y</sub>(x̄)</span>
+    <span class="f">Line:&nbsp; Y′ = a<sub>y</sub> + b<sub>y</sub>(x)</span>
+    <hr class="col">
+    <span class="f">b<sub>x</sub> = r · (SD<sub>x</sub> / SD<sub>y</sub>)</span>
+    <span class="f">a<sub>x</sub> = x̄ − b<sub>x</sub>(ȳ)</span>
+    <span class="f">X′ = a<sub>x</sub> + b<sub>x</sub>(y)</span>
+  </div>
+
+  <div class="blk">
+    <h2>⑧ Regression pipeline</h2>
+    <ol class="tight" style="padding-left:16px;">
+      <li>Scatterplot + mean &amp; SD each var</li>
+      <li>Pearson r</li>
+      <li>b<sub>y</sub> = r·SD<sub>y</sub>/SD<sub>x</sub></li>
+      <li>a<sub>y</sub> = ȳ − b<sub>y</sub>(x̄)</li>
+      <li>Y′ = a<sub>y</sub> + b<sub>y</sub>(x) → plug in X</li>
+      <li>Plot via (0, a<sub>y</sub>) and (x̄, ȳ)</li>
+    </ol>
+    <p class="note">X′: same steps, swap X &amp; Y.</p>
+  </div>
+
+  <div class="blk">
+    <h2>⑨ Predicting — KEY RULES</h2>
+    <ul class="tight">
+      <li>Predictor = X (predict from). Criterion = Y (predicted).</li>
+      <li><b>NO extrapolation:</b> if the value is outside the observed range → can't predict → write <b>NA</b>.</li>
+      <li>Plug into Y′ (or X′); show formula → numbers → answer.</li>
+    </ul>
+  </div>
+
+  <div class="blk">
+    <h2>⑩ Two lines: Y′ &amp; X′</h2>
+    <ul class="tight">
+      <li>Cross at the means <b>(x̄, ȳ)</b> (if not → error).</li>
+      <li>Rotate around (x̄, ȳ) as r changes.</li>
+      <li>Small angle = high r. r = ±1 → lines <b>overlap</b>. r = 0 → <b>perpendicular</b> (90°).</li>
+    </ul>
+  </div>
+
+  <div class="blk">
+    <h2>⑪ r, b, a relationship</h2>
+    <ul class="tight">
+      <li>r = 0 → b = 0; Y′ flat at a<sub>y</sub> = ȳ; X′ vertical at a<sub>x</sub> = x̄.</li>
+      <li>r ↑ → |b| ↑ (steeper).</li>
+      <li>b + → a below mean (toward origin); b − → a above mean.</li>
+    </ul>
+  </div>
+
+  <div class="blk">
+    <h2>⑫ Std error of estimate</h2>
+    <span class="f">SD<sub>(Y−Y′)</sub> = SD<sub>y</sub> · √(1 − r²)</span>
+    <span class="f">= √( Σ(Y−Y′)² / N )</span>
+    <ul class="tight">
+      <li>r ≠ 0 → smaller than SD<sub>y</sub></li>
+      <li>r = 0 → equals SD<sub>y</sub></li>
+      <li>r = ±1 → = 0 (no error)</li>
+    </ul>
+  </div>
+
+  <div class="blk">
+    <h2>⑬ Variability (r²)</h2>
+    <span class="f">Total (Y−ȳ) = Explained (Y′−ȳ) + Unexpl. (Y−Y′)</span>
+    <span class="f">SS<sub>T</sub> = SS<sub>R</sub> + SS<sub>E</sub></span>
+    <ul class="tight">
+      <li><b>r² = SS<sub>R</sub>/SS<sub>T</sub></b> = proportion <b>explained</b></li>
+      <li><b>1 − r² = SS<sub>E</sub>/SS<sub>T</sub></b> = proportion <b>unexplained</b></li>
+    </ul>
+    <p class="note">e.g. r=.95 → r²=.90 → 90% explained.</p>
+  </div>
+
+  <div class="blk">
+    <h2>⑭ Key concepts (1-liners)</h2>
+    <ul class="tight">
+      <li><b>Least squares:</b> best line minimizes Σ(Y−Y′)².</li>
+      <li><b>Heteroscedasticity</b> (links both topics): Y-spread changes across X (fan). ↓ r, flattens slope → use Spearman.</li>
+      <li><b>Curvilinear:</b> Pearson underestimates → Spearman.</li>
+      <li><b>Restricted range:</b> can't generalize beyond sampled range.</li>
+      <li><b>Corr ≠ cause:</b> need an experiment.</li>
+    </ul>
+  </div>
+
+  <div class="blk">
+    <h2>⑮ Exam reminders</h2>
+    <ul class="tight">
+      <li>Every calc: <b>formula → numbers → answer</b> (2 dp).</li>
+      <li>Round 4 dp during, 2 dp final.</li>
+      <li>Write <b>NA</b> if a value shouldn't be computed.</li>
+      <li>Scientific (non-graphing) calculator.</li>
+    </ul>
+  </div>
+</section>
+
+</body>
+</html>

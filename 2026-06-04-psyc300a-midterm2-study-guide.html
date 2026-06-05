@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PSYC 300A — Midterm 2 Study Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#22201c; --ink-soft:#46423b; --muted:#7a756b; --line:#e4e1d8; --line-soft:#eeece5;
+    --bg:#faf9f6; --panel:#f2f0ea; --paper:#fcfbf8;
+    --sage:#3f5b4c; --sage-deep:#33493d; --sage-bg:#eaefea; --sage-line:#cdd9cf;
+    --sand-bg:#f5efe2; --sand-line:#e6d9bd; --sand-ink:#6b5526;
+    --clay:#7c3f30; --clay-bg:#f4e9e4; --clay-line:#e2c6bb;
+    --slate:#3d4a5a; --slate-bg:#eceef1; --slate-line:#cfd5dd;
+    --ok:#33493d; --ok-bg:#e7efe8; --ok-line:#c5d6c9;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; color:var(--ink); background:var(--bg);
+    font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:16.5px; line-height:1.65; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{display:flex; max-width:1180px; margin:0 auto;}
+  nav{
+    position:sticky; top:0; align-self:flex-start; height:100vh; overflow-y:auto;
+    width:256px; flex:0 0 256px; padding:26px 16px 40px; border-right:1px solid var(--line);
+    font-size:13.5px; background:var(--paper);
+  }
+  nav .lead{font-family:"Fraunces",Georgia,serif; font-weight:600; color:var(--sage-deep); font-size:18px; line-height:1.2;}
+  nav .leadsub{color:var(--muted); font-size:12px; margin:2px 0 12px;}
+  nav h2{font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); margin:18px 0 5px; font-weight:600;}
+  nav a{display:block; color:var(--ink-soft); text-decoration:none; padding:3px 9px; border-radius:6px; line-height:1.38;}
+  nav a:hover{background:var(--sage-bg); color:var(--sage-deep);}
+  main{flex:1 1 auto; min-width:0; padding:40px 48px 100px; max-width:860px;}
+  header.hero{border-bottom:1px solid var(--sage-line); padding-bottom:24px; margin-bottom:8px;}
+  .hero .kicker{color:var(--sage); font-weight:600; letter-spacing:.14em; text-transform:uppercase; font-size:12px;}
+  .hero h1{font-family:"Fraunces",Georgia,serif; font-weight:600; font-size:40px; line-height:1.08; margin:10px 0 10px; letter-spacing:-0.01em;}
+  .hero p.sub{font-size:17.5px; color:var(--ink-soft); margin:0 0 16px; max-width:62ch;}
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px;}
+  .chip{background:var(--sage-bg); color:var(--sage-deep); border:1px solid var(--sage-line); border-radius:18px; padding:4px 13px; font-size:13px; font-weight:500;}
+  h2.sec{font-family:"Fraunces",Georgia,serif; font-weight:600; font-size:27px; margin:52px 0 6px; padding-top:14px; color:var(--ink); border-top:1px solid var(--line); letter-spacing:-0.01em;}
+  h2.sec .n{color:var(--sage); font-weight:600; margin-right:8px;}
+  h3{font-family:"Fraunces",Georgia,serif; font-size:20px; font-weight:600; margin:28px 0 6px; color:var(--ink);}
+  h4{font-size:13px; margin:20px 0 4px; color:var(--sage); text-transform:uppercase; letter-spacing:.07em; font-weight:600;}
+  p{margin:9px 0;} ul,ol{margin:9px 0 9px 2px; padding-left:24px;} li{margin:5px 0;}
+  strong{color:#1a1814; font-weight:600;}
+  code,.mono{font-family:"IBM Plex Mono",Menlo,Consolas,monospace; font-size:14px;}
+  .formula{font-family:"IBM Plex Mono",Menlo,Consolas,monospace; background:var(--paper); border:1px solid var(--line);
+    border-radius:8px; padding:12px 14px; margin:10px 0; font-size:14px; line-height:1.7; overflow-x:auto; white-space:pre-wrap;}
+  .lead-def{background:var(--sage-bg); border-left:3px solid var(--sage); padding:11px 16px; border-radius:0 8px 8px 0; margin:12px 0;}
+  table{border-collapse:collapse; width:100%; margin:14px 0; font-size:14.5px;}
+  th,td{border:1px solid var(--line); padding:8px 11px; text-align:left; vertical-align:top;}
+  th{background:var(--panel); font-weight:600; color:var(--ink);}
+  td.c,th.c{text-align:center;}
+  .box{border-radius:10px; padding:13px 17px; margin:16px 0; border:1px solid;}
+  .box .lab{font-weight:600; font-size:11px; letter-spacing:.07em; text-transform:uppercase; display:block; margin-bottom:5px;}
+  .key{background:var(--sage-bg); border-color:var(--sage-line);} .key .lab{color:var(--sage-deep);}
+  .tip{background:var(--sand-bg); border-color:var(--sand-line);} .tip .lab{color:var(--sand-ink);}
+  .warn{background:var(--clay-bg); border-color:var(--clay-line);} .warn .lab{color:var(--clay);}
+  .analogy{background:var(--slate-bg); border-color:var(--slate-line);} .analogy .lab{color:var(--slate);}
+  .worked{background:var(--paper); border:1px solid var(--sage-line); border-radius:10px; padding:4px 18px 16px; margin:16px 0;}
+  .worked .wlab{display:inline-block; background:var(--sage); color:#fff; font-size:11px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; padding:4px 12px; border-radius:0 0 7px 7px;}
+  .step{margin:11px 0;} .step b{color:var(--sage-deep);}
+  .pset{border:1px solid var(--line); border-radius:10px; padding:4px 20px 16px; margin:18px 0; background:var(--paper);}
+  .pset > .ptitle{display:inline-block; background:var(--panel); border:1px solid var(--line); border-top:none; font-size:11px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-soft); padding:5px 13px; border-radius:0 0 7px 7px;}
+  .q{margin:16px 0;}
+  .q .qn{font-weight:600; color:var(--sage-deep);}
+  details{margin:7px 0 0; border-left:3px solid var(--ok-line); background:var(--ok-bg); border-radius:0 7px 7px 0; padding:0 15px;}
+  details[open]{padding-bottom:11px;}
+  summary{cursor:pointer; padding:9px 0; font-weight:600; color:var(--ok); font-size:14px; list-style:none;}
+  summary::-webkit-details-marker{display:none;}
+  summary::before{content:"▸  reveal answer"; font-size:13px;}
+  details[open] summary::before{content:"▾  answer"; }
+  details .ans{font-size:15px; padding-bottom:2px;}
+  svg{max-width:100%; height:auto;}
+  .gallery{display:flex; flex-wrap:wrap; gap:12px; margin:14px 0;}
+  .gcard{flex:1 1 150px; min-width:140px; text-align:center; border:1px solid var(--line); border-radius:9px; padding:10px; background:var(--paper);}
+  .gcard .cap{font-size:12.5px; color:var(--ink-soft); margin-top:5px; font-weight:500;}
+  .toplink{font-family:"IBM Plex Sans",sans-serif; font-size:12px; color:var(--muted); text-decoration:none; float:right; margin-top:12px; font-weight:400; letter-spacing:0; text-transform:none;}
+  .toplink:hover{color:var(--sage);}
+  footer{border-top:1px solid var(--sage-line); margin-top:56px; padding-top:18px; color:var(--muted); font-size:13.5px;}
+  @media (max-width:820px){ nav{display:none;} main{padding:26px 18px 70px;} .hero h1{font-size:32px;} }
+  @media print{
+    nav{display:none;} main{max-width:100%; padding:0;}
+    body{background:#fff; color:#000; font-size:11pt;}
+    details{border:none; background:none; padding:0;} summary{display:none;}
+    details .ans{padding-left:0;}
+    .box,.worked,.pset,table,.gcard{break-inside:avoid;}
+    a{color:#000; text-decoration:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <div class="lead">PSYC 300A</div>
+  <div class="leadsub">Midterm 2 · Correlation &amp; Regression</div>
+  <a href="#plan">1 · Exam game plan</a>
+  <a href="#big">2 · The big picture</a>
+  <h2>Part 1 · Correlation</h2>
+  <a href="#found">3 · Foundations</a>
+  <a href="#describe">4 · Describing a correlation</a>
+  <a href="#pearson">5 · Pearson r: what &amp; why</a>
+  <a href="#calc-r">6 · Calculating r</a>
+  <a href="#factors">7 · Factors that affect r</a>
+  <a href="#which">8 · Which correlation to use</a>
+  <a href="#prac1">✎ Practice: Part 1</a>
+  <h2>Part 2 · Regression</h2>
+  <a href="#reg-intro">9 · What regression adds</a>
+  <a href="#lsq">10 · Equation &amp; least squares</a>
+  <a href="#slope">11 · Slope &amp; intercept</a>
+  <a href="#build">12 · Build &amp; plot the line</a>
+  <a href="#predict">13 · Predictions &amp; extrapolation</a>
+  <a href="#twolines">14 · Y′ vs X′</a>
+  <a href="#rba">15 · How r, b, a relate</a>
+  <a href="#see">16 · Standard error of estimate</a>
+  <a href="#var">17 · Variability (r²)</a>
+  <a href="#prac2">✎ Practice: Part 2</a>
+  <h2>Finish</h2>
+  <a href="#attack">18 · Attacking the Part 2 question</a>
+  <a href="#rapid">19 · Rapid-fire review</a>
+  <a href="#cheat">20 · Your cheat sheet</a>
+</nav>
+
+<main>
+<header class="hero">
+  <div class="kicker">Study Guide</div>
+  <h1>PSYC 300A — Midterm 2</h1>
+  <p class="sub">Everything on Correlation (Topic 4) and Regression (Topic 5), built from your own lecture slides, homework, and answer keys.</p>
+  <div class="chips">
+    <span class="chip">Fri, June 5 · start of class</span>
+    <span class="chip">50 minutes</span>
+    <span class="chip">30 points</span>
+    <span class="chip">Part 1 concepts · Part 2 calculation</span>
+  </div>
+  <div class="box key" style="margin-top:18px;">
+    <span class="lab">How to use this</span>
+    You've got about a day, the concepts are mostly there, and your arithmetic is solid. So this is built for fast review and lock-it-in practice, not teaching from scratch. For each part: skim the explanation, read the worked example, then do the practice questions and click to reveal the answer. Skip anything that already feels obvious. The two things that actually win points: saying <em>which</em> concept applies and <em>why</em>, and running the calculation cleanly with every step shown.
+  </div>
+</header>
+
+<h2 class="sec" id="plan"><span class="n">1</span>Exam game plan</h2>
+<table>
+  <tr><th>Part</th><th>Points</th><th>Time</th><th>What it is</th></tr>
+  <tr><td><strong>Part 1: Conceptual</strong></td><td class="c">15</td><td class="c">~15 min</td><td>9 questions. One-word, short answer, multiple choice. Point-form is fine.</td></tr>
+  <tr><td><strong>Part 2: Calculation</strong></td><td class="c">15</td><td class="c">~30 min</td><td><strong>One</strong> question with parts (a–f): given data, run the full analysis and draw the scatterplot with regression lines.</td></tr>
+</table>
+<p>You can start with either part. Points tell you the time budget. If you get stuck, flag it, move on, and come back.</p>
+
+<h4>What to bring, what's provided</h4>
+<ul>
+  <li><strong>Scientific (non-graphing) calculator.</strong> It needs square root, exponents, and brackets. Required.</li>
+  <li><strong>Your cheat sheet:</strong> one double-sided 8.5×11 sheet (your printed one is ready), plus photo ID.</li>
+  <li><strong>The prof provides a formula sheet</strong> on the exam (r, slope, intercept, regression, standard error, r², 1−r²). It isn't graded; you copy each formula into your answer and then plug in numbers.</li>
+</ul>
+<div class="box warn">
+  <span class="lab">The gap in the provided formula sheet</span>
+  The provided sheet leaves out the building blocks: <span class="mono">mean = Σx/N</span>, <span class="mono">SS = Σ(x−x̄)²</span>, and <span class="mono">SD = √(SS/N)</span>. You need these for nearly every calculation, so know them cold. They lead off your cheat sheet for that reason.
+</div>
+
+<h4>Showing work in Part 2 (this is graded, not just the final number)</h4>
+<ol>
+  <li>Write the <strong>formula in notation</strong>, e.g. <span class="mono">r = COV / (SD<sub>x</sub>SD<sub>y</sub>)</span>.</li>
+  <li>Plug in the <strong>numbers</strong>.</li>
+  <li>Write the <strong>final answer</strong>. You can still earn part marks if your steps are right but a number slips.</li>
+  <li>If a value shouldn't be calculated (like predicting outside the data range), write <strong>"NA"</strong> rather than leaving it blank.</li>
+</ol>
+<div class="box tip"><span class="lab">Rounding rule</span> Round to 4 decimals during the calculation, and round final answers to 2 decimals. The prof's answer keys do exactly this.</div>
+<div class="box tip"><span class="lab">The prof's own cross-topic hint</span> The concept she most wants you to connect across both topics is <strong>heteroscedasticity</strong>. It shows up in correlation and in regression, it lowers <span class="mono">r</span> and flattens the slope, and it changes which correlation you'd choose (push toward Spearman). If a question asks you to link the two topics, that's the one.</div>
+
+<h2 class="sec" id="big"><span class="n">2</span>The big picture <a class="toplink" href="#plan">↑ top</a></h2>
+<p>Both topics use the same kind of data: two scores per person (X and Y), called bivariate data. The difference is what you do with it.</p>
+<table>
+  <tr><th>Topic 4: Correlation</th><th>Topic 5: Regression</th></tr>
+  <tr><td><strong>Describes</strong> the relationship: how strongly, and in what direction, X and Y move together. The output is <span class="mono">r</span>.</td><td><strong>Uses</strong> the relationship to <strong>predict</strong> one variable from the other. The output is a line, <span class="mono">Y′ = a + b(X)</span>.</td></tr>
+  <tr><td colspan="2" class="c"><em>Same engine underneath: means → deviations → SS → SD → SP → COV → r. Regression just keeps going to build a prediction line.</em></td></tr>
+</table>
+
+<h2 class="sec" id="found"><span class="n">3</span>Foundations <a class="toplink" href="#plan">↑ top</a></h2>
+<ul>
+  <li><strong>Univariate</strong> is one variable (describe it with a graph plus mean and SD). <strong>Bivariate</strong> is two variables, X and Y.</li>
+  <li>For bivariate data you graph it with a <strong>scatterplot</strong>, describe each variable (mean, SD), then describe the <strong>association</strong> with r.</li>
+  <li><strong>Correlation</strong> is a technique that measures and describes the relationship between two variables. You need two scores per individual, usually measured rather than manipulated. Knowing two things are correlated lets you make predictions.</li>
+</ul>
+
+<h2 class="sec" id="describe"><span class="n">4</span>Describing a correlation <a class="toplink" href="#plan">↑ top</a></h2>
+<p>A correlation is described four ways. The first three make up your "describe it in words" answer.</p>
+<table>
+  <tr><th>Way</th><th>Means</th><th>Values</th></tr>
+  <tr><td><strong>1. Direction</strong></td><td>Which way they move together</td><td>Positive (+): X↑ Y↑. Negative (−): X↑ Y↓. None (0).</td></tr>
+  <tr><td><strong>2. Shape</strong></td><td>Straight line or curve</td><td>Linear, or curvilinear (e.g. an inverted U)</td></tr>
+  <tr><td><strong>3. Strength</strong></td><td>How tightly points cluster (subjective)</td><td>Weak, moderate, strong, none</td></tr>
+  <tr><td><strong>4. Magnitude</strong></td><td>The computed number (objective)</td><td><span class="mono">r</span>, from −1 to +1</td></tr>
+</table>
+<div class="box key"><span class="lab">High-yield</span> When asked to describe a relationship, give <strong>three terms: strength, direction, shape</strong>, like "strong, negative, linear." That's exactly what the homework key wanted.</div>
+
+<h4>What the patterns look like</h4>
+<div class="gallery">
+  <div class="gcard">
+    <svg viewBox="0 0 100 80" width="120"><line x1="12" y1="70" x2="92" y2="70" stroke="#b7b3a8"/><line x1="12" y1="70" x2="12" y2="6" stroke="#b7b3a8"/><g fill="#3f5b4c"><circle cx="20" cy="62" r="2.4"/><circle cx="30" cy="55" r="2.4"/><circle cx="40" cy="48" r="2.4"/><circle cx="50" cy="40" r="2.4"/><circle cx="60" cy="33" r="2.4"/><circle cx="70" cy="25" r="2.4"/><circle cx="82" cy="16" r="2.4"/></g></svg>
+    <div class="cap">Strong positive</div>
+  </div>
+  <div class="gcard">
+    <svg viewBox="0 0 100 80" width="120"><line x1="12" y1="70" x2="92" y2="70" stroke="#b7b3a8"/><line x1="12" y1="70" x2="12" y2="6" stroke="#b7b3a8"/><g fill="#3f5b4c"><circle cx="20" cy="18" r="2.4"/><circle cx="30" cy="26" r="2.4"/><circle cx="42" cy="30" r="2.4"/><circle cx="52" cy="42" r="2.4"/><circle cx="62" cy="50" r="2.4"/><circle cx="72" cy="58" r="2.4"/><circle cx="82" cy="64" r="2.4"/></g></svg>
+    <div class="cap">Strong negative</div>
+  </div>
+  <div class="gcard">
+    <svg viewBox="0 0 100 80" width="120"><line x1="12" y1="70" x2="92" y2="70" stroke="#b7b3a8"/><line x1="12" y1="70" x2="12" y2="6" stroke="#b7b3a8"/><g fill="#3f5b4c"><circle cx="22" cy="40" r="2.4"/><circle cx="34" cy="20" r="2.4"/><circle cx="40" cy="58" r="2.4"/><circle cx="52" cy="34" r="2.4"/><circle cx="60" cy="60" r="2.4"/><circle cx="70" cy="28" r="2.4"/><circle cx="80" cy="50" r="2.4"/></g></svg>
+    <div class="cap">No relationship (≈0)</div>
+  </div>
+  <div class="gcard">
+    <svg viewBox="0 0 100 80" width="120"><line x1="12" y1="70" x2="92" y2="70" stroke="#b7b3a8"/><line x1="12" y1="70" x2="12" y2="6" stroke="#b7b3a8"/><g fill="#3f5b4c"><circle cx="20" cy="60" r="2.4"/><circle cx="30" cy="44" r="2.4"/><circle cx="40" cy="30" r="2.4"/><circle cx="50" cy="22" r="2.4"/><circle cx="60" cy="24" r="2.4"/><circle cx="70" cy="36" r="2.4"/><circle cx="80" cy="56" r="2.4"/></g></svg>
+    <div class="cap">Curvilinear (inverted U)</div>
+  </div>
+</div>
+<div class="box analogy"><span class="lab">Think of it like</span> <strong>Strength</strong> is how reliably a shooter's form predicts the make. A player who drains it from the same spot every time gives you a tight, strong relationship (points hug the line). A streaky chucker is weak (points scattered). <strong>Direction</strong> is just which way it leans: more arc means more makes, so that's positive.</div>
+
+<h4>Interpreting r: magnitude thresholds</h4>
+<table>
+  <tr><th>For human behaviour, |r|</th><th>Interpretation</th></tr>
+  <tr><td class="c">&lt; .10</td><td>No relationship</td></tr>
+  <tr><td class="c">.10 to .30</td><td>Weak</td></tr>
+  <tr><td class="c">&gt; .30 to .50</td><td>Moderate</td></tr>
+  <tr><td class="c">&gt; .50</td><td>Strong</td></tr>
+</table>
+<table>
+  <tr><th>For test reliability, |r| (higher bar)</th><th>Interpretation</th></tr>
+  <tr><td class="c">&gt; .85</td><td>Very desirable</td></tr>
+  <tr><td class="c">.70 to .85</td><td>Desirable / moderately acceptable</td></tr>
+  <tr><td class="c">&lt; .70</td><td>Poor reliability</td></tr>
+</table>
+<div class="box tip"><span class="lab">Trap</span> The two tables are different. A reliability question (test-retest, inter-rater, internal consistency) needs a much higher r than an ordinary human-behaviour relationship. Don't call r = .65 "strong" on a reliability question; there, it's poor reliability.</div>
+
+<h2 class="sec" id="pearson"><span class="n">5</span>Pearson r: what &amp; why <a class="toplink" href="#plan">↑ top</a></h2>
+<div class="lead-def"><strong>Pearson r</strong> (also called the Pearson product-moment correlation) measures the <strong>degree and direction of the linear relationship</strong> between two variables. <strong>Both variables must be interval/ratio.</strong> The population symbol is ρ (rho); the sample is r. It runs from −1 to +1: closer to ±1 is stronger, closer to 0 is weaker.</div>
+<p>The logic is the Venn-diagram idea. Each variable has its own variance, and where they overlap is the <strong>shared variance, or covariance</strong>.</p>
+<div class="formula">r = (how much X and Y vary TOGETHER) / (how much X and Y vary SEPARATELY)
+  = covariability of X and Y / total variability of X and Y</div>
+<p>Perfect overlap gives r = ±1. No overlap gives r = 0.</p>
+
+<h2 class="sec" id="calc-r"><span class="n">6</span>Calculating r <a class="toplink" href="#plan">↑ top</a></h2>
+<p>This is the spine of the whole calculation question. Learn the order.</p>
+<div class="formula">1. Plot the data (scatterplot)
+2. For EACH variable: mean (x̄ = Σx/N), then SS = Σ(x−x̄)², then SD = √(SS/N)
+3. Sums of Products:  SP = Σ(x−x̄)(y−ȳ)
+4. Covariance:        COV = SP / N
+5. Correlation:       r = COV / (SD_x · SD_y)</div>
+
+<div class="worked">
+  <span class="wlab">Worked example: meditation vs concentration (from your slides)</span>
+  <p><strong>X</strong> = minutes meditating per week: 20, 0, 10, 12, 3. <strong>Y</strong> = minutes concentrating: 30, 5, 21, 29, 10. (N = 5)</p>
+  <div class="step"><b>Means.</b> x̄ = 45/5 = <strong>9</strong>. ȳ = 95/5 = <strong>19</strong>.</div>
+  <div class="step"><b>Deviations &amp; SS (X).</b> (x−x̄) = 11, −9, 1, 3, −6. Squared: 121, 81, 1, 9, 36. SS<sub>x</sub> = <strong>248</strong>. SD<sub>x</sub> = √(248/5) = √49.6 = <strong>7.0427</strong>.</div>
+  <div class="step"><b>Deviations &amp; SS (Y).</b> (y−ȳ) = 11, −14, 2, 10, −9. Squared: 121, 196, 4, 100, 81. SS<sub>y</sub> = <strong>502</strong>. SD<sub>y</sub> = √(502/5) = √100.4 = <strong>10.0200</strong>.</div>
+  <div class="step"><b>SP.</b> Products (x−x̄)(y−ȳ) = 121, 126, 2, 30, 54. SP = <strong>333</strong>.</div>
+  <div class="step"><b>COV.</b> 333/5 = <strong>66.6</strong>.</div>
+  <div class="step"><b>r.</b> 66.6 / (7.0427 × 10.0200) = <strong>.94</strong>. Strong, positive, linear.</div>
+  <div class="step"><b>Report (APA style).</b> "There was a strong positive relationship between minutes meditating (M = 9.00, SD = 7.04) and minutes concentrating (M = 19.00, SD = 10.02), r = .94."</div>
+</div>
+<div class="box tip"><span class="lab">Tidy trick</span> Build one table with columns: X, Y, (x−x̄), (y−ȳ), (x−x̄)², (y−ȳ)², (x−x̄)(y−ȳ). Sum the last three columns to get SS<sub>x</sub>, SS<sub>y</sub>, and SP. Everything else flows from there, which is exactly how the answer keys lay it out.</div>
+
+<h2 class="sec" id="factors"><span class="n">7</span>Factors that affect r <a class="toplink" href="#plan">↑ top</a></h2>
+<div class="box key"><span class="lab">First, the one that does NOT affect r</span> <strong>Sample size.</strong> "Bigger samples give bigger r" is <strong>false</strong>, because N cancels out in the formula. Don't confuse this with <em>sampling error</em>, which is a different thing and can affect r.</div>
+<p>Seven factors that do affect the size of r:</p>
+<table>
+  <tr><th>Factor</th><th>What it does</th></tr>
+  <tr><td><strong>1. Real relationship</strong></td><td>The relationship genuinely is strong or weak.</td></tr>
+  <tr><td><strong>2. Sampling error</strong></td><td>The luck-of-the-draw gap between your sample and the true population. It can push r spuriously up or down.</td></tr>
+  <tr><td><strong>3. Unmeasured third variable</strong></td><td>A hidden variable drives both. This is why correlation isn't causation; you'd need an experiment. Example: ice cream sales and drownings (both driven by summer heat).</td></tr>
+  <tr><td><strong>4. Heterogeneous sample</strong></td><td>Your sample is really two subgroups. Combining them can fake a relationship (kids plus adults for height and weight) or hide opposite patterns within each group.</td></tr>
+  <tr><td><strong>5. Restricted (truncated) range</strong></td><td>You sampled only part of the range, so r changes and you can't generalize beyond what you sampled. It can raise r (cutting off a curve) or lower it (chopping a linear trend into a blob).</td></tr>
+  <tr><td><strong>6. Non-linearity (curvilinear)</strong></td><td>If the true relationship is a curve, Pearson r <strong>underestimates</strong> it. Plot first.</td></tr>
+  <tr><td><strong>7. Heteroscedasticity</strong></td><td>The spread of Y changes across X (a fan shape; bad), usually from a skewed variable. Since r = COV/(SD<sub>x</sub>SD<sub>y</sub>), a bigger SD means <strong>lower r</strong>. (Homoscedasticity is constant spread, which is good.)</td></tr>
+</table>
+
+<h2 class="sec" id="which"><span class="n">8</span>Which correlation to use <a class="toplink" href="#plan">↑ top</a></h2>
+<p>Pearson needs both variables interval/ratio. For other scales you use the same formula under a different name. Pick using the scale of measurement of each variable.</p>
+<table>
+  <tr><th></th><th class="c">Y: Nominal (2 groups)</th><th class="c">Y: Ordinal</th><th class="c">Y: Interval/Ratio</th></tr>
+  <tr><th>X: Nominal (2 groups)</th><td class="c"><strong>Phi (φ)</strong></td><td class="c">Spearman (r<sub>s</sub>)</td><td class="c"><strong>Point-Biserial (r<sub>pb</sub>)</strong></td></tr>
+  <tr><th>X: Ordinal</th><td class="c">Spearman</td><td class="c">Spearman</td><td class="c">Spearman</td></tr>
+  <tr><th>X: Interval/Ratio</th><td class="c"><strong>Point-Biserial (r<sub>pb</sub>)</strong></td><td class="c">Spearman</td><td class="c"><strong>Pearson (r)</strong></td></tr>
+</table>
+<div class="box key"><span class="lab">Decision rule (say it in words for full marks)</span>
+  <ul style="margin-bottom:0;">
+    <li>Both <strong>interval/ratio</strong>: <strong>Pearson r</strong></li>
+    <li>Any variable is <strong>ordinal</strong>: <strong>Spearman rho (r<sub>s</sub>)</strong></li>
+    <li>One <strong>dichotomous nominal</strong> (2 groups) plus one interval/ratio: <strong>Point-Biserial (r<sub>pb</sub>)</strong></li>
+    <li>Both <strong>dichotomous nominal</strong>: <strong>Phi (φ)</strong></li>
+  </ul>
+</div>
+<p><strong>Spearman rho</strong> also rescues two extra cases on interval/ratio data: a <strong>weak curvilinear</strong> relationship, or <strong>heteroscedasticity</strong>. It converts scores to <strong>ranks</strong> (then runs Pearson on the ranks), which measures consistency rather than exact form and pulls outliers in. So curvilinear or skewed/fan-shaped data points to Spearman.</p>
+
+<div class="pset" id="prac1">
+  <span class="ptitle">✎ Practice: Part 1 (concepts + a calculation)</span>
+  <div class="q"><span class="qn">C1.</span> Describe this relationship in three terms:
+    <svg viewBox="0 0 100 60" width="120" style="vertical-align:middle"><line x1="12" y1="52" x2="92" y2="52" stroke="#b7b3a8"/><line x1="12" y1="52" x2="12" y2="6" stroke="#b7b3a8"/><g fill="#3f5b4c"><circle cx="20" cy="14" r="2.2"/><circle cx="30" cy="20" r="2.2"/><circle cx="42" cy="24" r="2.2"/><circle cx="52" cy="32" r="2.2"/><circle cx="62" cy="38" r="2.2"/><circle cx="72" cy="44" r="2.2"/><circle cx="82" cy="48" r="2.2"/></g></svg>
+    <details><summary></summary><div class="ans">Strong, negative, linear.</div></details>
+  </div>
+  <div class="q"><span class="qn">C2.</span> "Preferred social media site" (nominal) and "mode of transport" (nominal). Which coefficient and symbol?
+    <details><summary></summary><div class="ans">Phi, φ. Both variables are dichotomous nominal.</div></details>
+  </div>
+  <div class="q"><span class="qn">C3.</span> "Expected grade" (ordinal) and "anxiety" (ordinal)?
+    <details><summary></summary><div class="ans">Spearman rho, r<sub>s</sub>. Any ordinal variable means Spearman.</div></details>
+  </div>
+  <div class="q"><span class="qn">C4.</span> "Age" (ratio) and "owns a car: yes/no" (nominal, 2 groups)?
+    <details><summary></summary><div class="ans">Point-Biserial, r<sub>pb</sub>. One dichotomous nominal plus one interval/ratio.</div></details>
+  </div>
+  <div class="q"><span class="qn">C5.</span> True or false: a bigger sample size produces a bigger r.
+    <details><summary></summary><div class="ans"><strong>False.</strong> Sample size does not affect r; N cancels in the formula.</div></details>
+  </div>
+  <div class="q"><span class="qn">C6.</span> A scatterplot of anxiety vs performance is an inverted U. You run Pearson r and get about 0. What's happening, and what should you do?
+    <details><summary></summary><div class="ans">The relationship is <strong>curvilinear</strong>, and Pearson r <strong>underestimates</strong> curvilinear relationships, so it reads near 0 even though a real relationship exists. Plot the data first, and use <strong>Spearman rho</strong>.</div></details>
+  </div>
+  <div class="q"><span class="qn">C7.</span> A scatterplot of income vs age fans out (tight when young, very spread when older). Name the issue, its effect on r, and the better coefficient.
+    <details><summary></summary><div class="ans"><strong>Heteroscedasticity</strong>, from the skewed income variable. It <strong>lowers r</strong> (a bigger SD in the denominator) and hurts prediction accuracy at the high end. Use <strong>Spearman rho</strong>; ranks pull the outliers in.</div></details>
+  </div>
+  <div class="q"><span class="qn">C8.</span> Name any three factors that can affect the size of r.
+    <details><summary></summary><div class="ans">Any 3 of: real relationship strength, sampling error, unmeasured third variable, heterogeneous sample, restricted range, non-linearity, heteroscedasticity. (Not sample size.)</div></details>
+  </div>
+  <div class="q"><span class="qn">C9.</span> Two interval variables correlate at r = .42. Interpret the strength (human behaviour).
+    <details><summary></summary><div class="ans"><strong>Moderate</strong> positive relationship (greater than .30 up to .50).</div></details>
+  </div>
+  <div class="q"><span class="qn">C10.</span> A friend sees a strong correlation and says "so X causes Y." Why are they wrong?
+    <details><summary></summary><div class="ans">Correlation isn't causation. A third, unmeasured variable could drive both, or the causal arrow could point the other way. You'd need an <strong>experiment</strong> to claim causation.</div></details>
+  </div>
+  <div class="q"><span class="qn">Calc-1: do the correlation.</span> X = hours of basketball practice per week: 2, 4, 6, 8, 10. Y = free throws made out of 20: 3, 7, 8, 10, 12. Find x̄, SS<sub>x</sub>, SD<sub>x</sub>, ȳ, SS<sub>y</sub>, SD<sub>y</sub>, SP, COV, r, and describe it in three terms. (You'll turn this same data into a regression in Part 2.)
+    <details><summary></summary><div class="ans">
+      x̄ = 30/5 = <strong>6</strong>. (x−x̄) = −4, −2, 0, 2, 4. SS<sub>x</sub> = 16+4+0+4+16 = <strong>40</strong>. SD<sub>x</sub> = √(40/5) = √8 = <strong>2.83</strong>.<br>
+      ȳ = 40/5 = <strong>8</strong>. (y−ȳ) = −5, −1, 0, 2, 4. SS<sub>y</sub> = 25+1+0+4+16 = <strong>46</strong>. SD<sub>y</sub> = √(46/5) = √9.2 = <strong>3.03</strong>.<br>
+      SP = (−4)(−5)+(−2)(−1)+0+(2)(2)+(4)(4) = 20+2+0+4+16 = <strong>42</strong>. COV = 42/5 = <strong>8.40</strong>.<br>
+      r = 8.40 / (2.83 × 3.03) = <strong>.98</strong>. Strong, positive, linear.
+    </div></details>
+  </div>
+</div>
+
+<h2 class="sec" id="reg-intro"><span class="n">9</span>What regression adds <a class="toplink" href="#plan">↑ top</a></h2>
+<p>Correlation tells you the relationship exists. Regression uses it to predict an unknown score from a known one.</p>
+<ul>
+  <li><strong>Predictor variable:</strong> the one you predict from (X-axis).</li>
+  <li><strong>Criterion variable:</strong> the one being predicted (Y-axis).</li>
+</ul>
+<div class="box analogy"><span class="lab">Think of it like</span> Correlation says "hours practiced and free throws made go together." Regression builds the formula that lets you say a kid who practices 7 hours will probably make about 9 free throws. It's like a game predicting your rank from hours played: draw the line of best fit through the data, then read off the prediction.</div>
+
+<h2 class="sec" id="lsq"><span class="n">10</span>The equation &amp; least squares <a class="toplink" href="#plan">↑ top</a></h2>
+<div class="formula">Y′ = a_y + b_y(x)      Y′ = "Y-prime" = the PREDICTED score (also written Ŷ)
+                       a_y = Y-intercept,  b_y = slope</div>
+<p><strong>Error (residual)</strong> is a person's actual Y minus their predicted Y′, that is <span class="mono">(Y − Y′)</span>. The best-fitting line minimizes that error.</p>
+<div class="box key"><span class="lab">Why "least squares"</span> You can't just add up the errors Σ(Y−Y′), because they always sum to <strong>0</strong> (the line runs through the middle). So you square them and minimize <strong>Σ(Y−Y′)²</strong>. The best-fitting line is the one where Σ(Y−Y′)² is as small as possible, which is why it's called <strong>least squares</strong> regression.</div>
+
+<h2 class="sec" id="slope"><span class="n">11</span>Slope &amp; intercept <a class="toplink" href="#plan">↑ top</a></h2>
+<table>
+  <tr><th></th><th>What it means</th><th>Formula</th></tr>
+  <tr><td><strong>Slope b<sub>y</sub></strong></td><td>Change in Y for every <strong>1-unit increase in X</strong> (rise over run). Can be + or −.</td><td class="mono">b<sub>y</sub> = r · (SD<sub>y</sub> / SD<sub>x</sub>)</td></tr>
+  <tr><td><strong>Intercept a<sub>y</sub></strong></td><td>Value of Y′ when <strong>X = 0</strong> (where the line crosses the Y-axis).</td><td class="mono">a<sub>y</sub> = ȳ − b<sub>y</sub>(x̄)</td></tr>
+</table>
+<div class="box key"><span class="lab">Interpreting slope (a classic conceptual question)</span> If <span class="mono">Y′ = .15 + .27(X)</span> predicts grad-school GPA (Y) from GRE score (X), the slope means <strong>GPA goes up by .27 for every 1-point increase in GRE</strong>. Slope is the change in the criterion per 1-unit rise in the predictor.</div>
+<div class="box tip"><span class="lab">They can run it backwards</span> Given any 3 of {r, b<sub>y</sub>, SD<sub>x</sub>, SD<sub>y</sub>}, solve for the 4th from <span class="mono">b<sub>y</sub> = r·SD<sub>y</sub>/SD<sub>x</sub></span>. Example: r = .31, b<sub>y</sub> = .42, SD<sub>y</sub> = 3.44, so SD<sub>x</sub> = r·SD<sub>y</sub>/b<sub>y</sub> = .31×3.44/.42 = <strong>2.54</strong>.</div>
+
+<h2 class="sec" id="build"><span class="n">12</span>Build &amp; plot the line <a class="toplink" href="#plan">↑ top</a></h2>
+<div class="formula">To define Y′ (predict Y from X):
+1. Scatterplot + mean & SD for each variable
+2. Pearson r
+3. Slope:     b_y = r · SD_y / SD_x
+4. Intercept: a_y = ȳ − b_y(x̄)
+5. Equation:  Y′ = a_y + b_y(x)   → plug in a given X to predict
+6. Plot the line through TWO points: the intercept (0, a_y) and the means (x̄, ȳ)
+
+To define X′ (predict X from Y): same steps, swap X & Y →
+   b_x = r · SD_x / SD_y      a_x = x̄ − b_x(ȳ)      X′ = a_x + b_x(y)</div>
+
+<div class="worked">
+  <span class="wlab">Worked example: your Homework 5 (ATRISK predicting IMOBULBN)</span>
+  <p><strong>X</strong> = ATRISK score: 7, 7, 7, 2, 4, 4, 3, 8, 3, 5. <strong>Y</strong> = IMOBULBN: 25, 25, 28, 12, 21, 25, 15, 22, 9, 18. (N = 10)</p>
+  <div class="step"><b>Means &amp; SDs.</b> x̄ = 5, SS<sub>x</sub> = 40, so SD<sub>x</sub> = √(40/10) = <strong>2.00</strong>. ȳ = 20, SS<sub>y</sub> = 358, so SD<sub>y</sub> = √(358/10) = <strong>5.9833</strong>.</div>
+  <div class="step"><b>SP, COV, r.</b> SP = 92, COV = 9.2, r = 9.2/(2×5.9833) = <strong>.77</strong> (strong positive).</div>
+  <div class="step"><b>Slope.</b> b<sub>y</sub> = r·SD<sub>y</sub>/SD<sub>x</sub> = .7688 × 5.9833/2 = <strong>2.30</strong>.</div>
+  <div class="step"><b>Intercept.</b> a<sub>y</sub> = ȳ − b<sub>y</sub>(x̄) = 20 − 2.30(5) = <strong>8.50</strong>.</div>
+  <div class="step"><b>Equation.</b> <strong>Y′ = 8.50 + 2.30(X)</strong>.</div>
+  <div class="step"><b>Predict.</b> X = 5 gives Y′ = 8.50 + 2.30(5) = <strong>20.00</strong>. X = 10 gives <strong>NA, cannot extrapolate</strong> (10 is outside the observed X range of 2 to 8).</div>
+  <div class="step"><b>Plot it.</b> Draw through the intercept (0, 8.50) and the means (5, 20). The X′ line crosses it at (5, 20).</div>
+</div>
+
+<h2 class="sec" id="predict"><span class="n">13</span>Predictions &amp; extrapolation <a class="toplink" href="#plan">↑ top</a></h2>
+<div class="box warn"><span class="lab">Easy points, don't miss it</span> Regression does <strong>not</strong> predict beyond the range of the observed data. If the X you're asked to plug in is outside the X values you actually measured, you <strong>cannot predict</strong>; write <strong>"NA, cannot extrapolate."</strong> In HW5, X = 10 and Y = 3 were both out of range, so both were NA. This is a classic trap.</div>
+
+<h2 class="sec" id="twolines"><span class="n">14</span>Y′ vs X′: the two lines <a class="toplink" href="#plan">↑ top</a></h2>
+<ul>
+  <li>You can draw two regression lines: Y′ (predict Y from X) and X′ (predict X from Y).</li>
+  <li>They always <strong>cross at the means (x̄, ȳ)</strong>. If yours don't, you made an error.</li>
+  <li>With raw scores, the two lines <strong>rotate around (x̄, ȳ)</strong> as r changes.</li>
+  <li>A <strong>small angle between them means a high correlation</strong>. At r = ±1 the lines <strong>overlap</strong>; as r approaches 0 the angle grows, and at r = 0 they're <strong>perpendicular</strong> (90°).</li>
+</ul>
+
+<h2 class="sec" id="rba"><span class="n">15</span>How r, b, and a relate <a class="toplink" href="#plan">↑ top</a></h2>
+<ul>
+  <li>If <strong>r = 0</strong>, the slope b = 0. The Y′ line is flat at <span class="mono">a<sub>y</sub> = ȳ</span> (your best guess for everyone is just the mean of Y), and the X′ line is vertical at <span class="mono">a<sub>x</sub> = x̄</span>.</li>
+  <li>As <strong>r increases</strong>, |b| increases (a steeper line).</li>
+  <li>If b is positive, the intercept a sits below the mean, toward the origin. If b is negative, a sits above the mean, away from the origin.</li>
+</ul>
+
+<h2 class="sec" id="see"><span class="n">16</span>Standard error of estimate <a class="toplink" href="#plan">↑ top</a></h2>
+<div class="lead-def"><strong>Standard error of estimate (SD<sub>Y−Y′</sub>)</strong> is the standard deviation of the prediction errors (the residuals). It's how far off, on average, your predictions are. Same logic as a regular SD, but on (Y − Y′) instead of (x − x̄).</div>
+<div class="formula">SD_(Y−Y′) = √( Σ(Y−Y′)² / N )      ← the "long way"
+SD_(Y−Y′) = SD_y · √(1 − r²)         ← the fast way (use this)</div>
+<table>
+  <tr><th>If…</th><th>then SD<sub>Y−Y′</sub> is…</th><th>why</th></tr>
+  <tr><td>r ≠ 0</td><td><strong>smaller</strong> than SD<sub>y</sub></td><td>X gives extra info, so less prediction error (two sources beat one)</td></tr>
+  <tr><td>r = 0</td><td><strong>equal</strong> to SD<sub>y</sub></td><td>X tells you nothing; SD<sub>y</sub>·√(1−0) = SD<sub>y</sub></td></tr>
+  <tr><td>r = ±1</td><td><strong>0</strong></td><td>every point is on the line, so no error; SD<sub>y</sub>·√(1−1) = 0</td></tr>
+</table>
+
+<h2 class="sec" id="var"><span class="n">17</span>Variability: total, explained, unexplained <a class="toplink" href="#plan">↑ top</a></h2>
+<p>This is the prof's favourite conceptual area. There are three kinds of variability, each measured from a data point.</p>
+<table>
+  <tr><th>Type</th><th>Distance</th><th>Meaning</th></tr>
+  <tr><td><strong>Total</strong></td><td class="mono">(Y − ȳ)</td><td>How far the actual score is from the mean of Y.</td></tr>
+  <tr><td><strong>Explained</strong> (regression)</td><td class="mono">(Y′ − ȳ)</td><td>How far the prediction is from the mean: the part the X–Y relationship accounts for.</td></tr>
+  <tr><td><strong>Unexplained</strong> (error/residual)</td><td class="mono">(Y − Y′)</td><td>How far the actual score is from the prediction: the leftover the line can't explain.</td></tr>
+</table>
+<div class="formula">Total = Explained + Unexplained
+(Y − ȳ) = (Y′ − ȳ) + (Y − Y′)
+
+Squared (because raw deviations sum to 0):
+SS_T = SS_R + SS_E
+Σ(Y−ȳ)² = Σ(Y′−ȳ)² + Σ(Y−Y′)²</div>
+<p>SS values are in awkward squared units, so convert them to <strong>proportions</strong>.</p>
+<div class="box key"><span class="lab">The punchline: r²</span>
+  <ul style="margin-bottom:0;">
+    <li><strong>Proportion explained = SS<sub>R</sub>/SS<sub>T</sub> = r²</strong>: the share of Y you can predict from X.</li>
+    <li><strong>Proportion unexplained = SS<sub>E</sub>/SS<sub>T</sub> = 1 − r²</strong>: the leftover, due to other unknown factors.</li>
+  </ul>
+  Example: r = .95 gives r² = .90, so 90% of the variability in Y is explained by X and 10% is unexplained.
+</div>
+<div class="box analogy"><span class="lab">Think of it like</span> <strong>r²</strong> is the percent of a teammate's scoring you can explain by their minutes played. r² = .90 means minutes explain 90% of the point differences; the other 10% is hot and cold nights, defense, and luck, which is outside your one predictor.</div>
+
+<div class="pset" id="prac2">
+  <span class="ptitle">✎ Practice: Part 2 (regression + full calculations)</span>
+  <div class="q"><span class="qn">C11.</span> In <span class="mono">Y′ = a + b(X)</span>, which is the predictor and which is the criterion?
+    <details><summary></summary><div class="ans">X is the predictor (you predict from it); Y is the criterion (being predicted).</div></details>
+  </div>
+  <div class="q"><span class="qn">C12.</span> Why does the best-fit line minimize the squared errors instead of the plain errors?
+    <details><summary></summary><div class="ans">The plain errors Σ(Y−Y′) always sum to 0, since positives and negatives cancel. Squaring removes the cancelation, and minimizing Σ(Y−Y′)² gives the unique "least squares" line.</div></details>
+  </div>
+  <div class="q"><span class="qn">C13.</span> A regression is <span class="mono">Y′ = 12 + 3(X)</span>. Interpret the slope and intercept in plain words.
+    <details><summary></summary><div class="ans">Slope: Y goes up by 3 for every 1-unit increase in X. Intercept: when X = 0, the predicted Y is 12.</div></details>
+  </div>
+  <div class="q"><span class="qn">C14.</span> If r = 0, what do the two regression lines look like, and what's your best prediction of Y for anyone?
+    <details><summary></summary><div class="ans">The lines are perpendicular (Y′ flat at ȳ, X′ vertical at x̄). With r = 0, your best prediction of Y for anyone is just <strong>ȳ</strong>, the mean; X adds nothing.</div></details>
+  </div>
+  <div class="q"><span class="qn">C15.</span> r = .60. What proportion of the variance in Y is explained? Unexplained?
+    <details><summary></summary><div class="ans">Explained = r² = .36 (36%). Unexplained = 1 − r² = .64 (64%).</div></details>
+  </div>
+  <div class="q"><span class="qn">Calc-2: finish the basketball data as a regression.</span> Using Calc-1 (x̄ = 6, SD<sub>x</sub> = 2.83; ȳ = 8, SD<sub>y</sub> = 3.03; r = .98; SS<sub>y</sub> = 46), find b<sub>y</sub>, a<sub>y</sub>, the equation, predict free throws for 5 hours and for 20 hours of practice, then find SD<sub>Y−Y′</sub>, r², and the SS<sub>T</sub>/SS<sub>R</sub>/SS<sub>E</sub> breakdown.
+    <details><summary></summary><div class="ans">
+      b<sub>y</sub> = r·SD<sub>y</sub>/SD<sub>x</sub> = .98 × 3.03/2.83 = <strong>1.05</strong>. a<sub>y</sub> = ȳ − b<sub>y</sub>(x̄) = 8 − 1.05(6) = <strong>1.70</strong>.<br>
+      <strong>Y′ = 1.70 + 1.05(X)</strong>.<br>
+      X = 5 gives Y′ = 1.70 + 1.05(5) = <strong>6.95</strong> free throws. X = 20 gives <strong>NA, cannot extrapolate</strong> (range is 2 to 10).<br>
+      r² = .98² = <strong>.96</strong> (96% explained). 1 − r² = <strong>.04</strong>. SD<sub>Y−Y′</sub> = SD<sub>y</sub>√(1−r²) = 3.03 × √.04 ≈ <strong>.62</strong>.<br>
+      SS<sub>T</sub> = SS<sub>y</sub> = <strong>46</strong>. SS<sub>E</sub> = SS<sub>T</sub>(1−r²) = 46 × .04 ≈ <strong>1.90</strong>. SS<sub>R</sub> = 46 − 1.90 = <strong>44.10</strong>.<br>
+      (The last decimals can wobble a little with rounding, which the prof accepts, as in your HW5 key.)
+    </div></details>
+  </div>
+  <div class="q"><span class="qn">Calc-3: full pipeline, fresh data.</span> X = hours per day gaming: 1, 2, 3, 4, 5, 6. Y = weekly rank points: 30, 45, 40, 60, 65, 75. (N = 6) Do the whole thing: means, SS, SD, SP, COV, r, the Y′ equation, predict rank for 4 hours and for 10 hours, plus r² and SS<sub>T</sub>/SS<sub>R</sub>/SS<sub>E</sub>.
+    <details><summary></summary><div class="ans">
+      x̄ = 21/6 = <strong>3.50</strong>. SS<sub>x</sub> = <strong>17.50</strong>. SD<sub>x</sub> = √(17.5/6) = <strong>1.71</strong>.<br>
+      ȳ = 315/6 = <strong>52.50</strong>. SS<sub>y</sub> = <strong>1437.50</strong>. SD<sub>y</sub> = √(1437.5/6) = <strong>15.48</strong>.<br>
+      SP = <strong>152.50</strong>. COV = 152.5/6 = <strong>25.42</strong>. r = 25.42/(1.71×15.48) = <strong>.96</strong> (strong positive).<br>
+      b<sub>y</sub> = r·SD<sub>y</sub>/SD<sub>x</sub> = <strong>8.71</strong>. a<sub>y</sub> = ȳ − b<sub>y</sub>(x̄) = 52.5 − 8.71(3.5) = <strong>22.00</strong>. So <strong>Y′ = 22.00 + 8.71(X)</strong>.<br>
+      X = 4 gives Y′ = 22.00 + 8.71(4) = <strong>56.86</strong> points. X = 10 gives <strong>NA, cannot extrapolate</strong> (range 1 to 6).<br>
+      r² = .96² = <strong>.92</strong> (92% explained). 1 − r² = <strong>.08</strong>.<br>
+      SS<sub>T</sub> = <strong>1437.50</strong>. SS<sub>E</sub> = 1437.5 × .08 ≈ <strong>108.57</strong>. SS<sub>R</sub> = 1437.5 − 108.57 ≈ <strong>1328.93</strong>.
+    </div></details>
+  </div>
+</div>
+
+<h2 class="sec" id="attack"><span class="n">18</span>Attacking the Part 2 question <a class="toplink" href="#plan">↑ top</a></h2>
+<p>When you open the calculation question, run this order every time. Build the big table first, and everything falls out of it.</p>
+<ol>
+  <li>Draw the <strong>scatterplot</strong> (X on the horizontal axis, as instructed).</li>
+  <li>Make the <strong>table</strong>: X, Y, (x−x̄), (y−ȳ), (x−x̄)², (y−ȳ)², (x−x̄)(y−ȳ).</li>
+  <li>Column sums give <strong>SS<sub>x</sub>, SS<sub>y</sub>, SP</strong>. Then SD<sub>x</sub>, SD<sub>y</sub>, COV, <strong>r</strong>.</li>
+  <li>Describe and interpret r (direction, strength, magnitude).</li>
+  <li><strong>b<sub>y</sub></strong>, then <strong>a<sub>y</sub></strong>, then write <strong>Y′ = a<sub>y</sub> + b<sub>y</sub>(X)</strong>. Add b<sub>x</sub>, a<sub>x</sub>, X′ if asked.</li>
+  <li><strong>Predict</strong> for the given values, checking that each one is inside the data range (otherwise NA).</li>
+  <li>If asked: <strong>SD<sub>Y−Y′</sub></strong> = SD<sub>y</sub>√(1−r²), then <strong>r²</strong> and <strong>1−r²</strong>, then <strong>SS<sub>T</sub> = SS<sub>R</sub> + SS<sub>E</sub></strong>.</li>
+  <li><strong>Draw the regression line(s)</strong> through the intercept (0, a) and the means (x̄, ȳ). They must cross at the means.</li>
+</ol>
+<div class="box tip"><span class="lab">For every calculation</span> formula in notation, then numbers plugged in, then final answer (2 decimals). Write "NA" where a value shouldn't be computed. The part marks live in the work you show.</div>
+
+<h2 class="sec" id="rapid"><span class="n">19</span>Rapid-fire review <a class="toplink" href="#plan">↑ top</a></h2>
+<p>Cover the answers and say each one out loud. This is the prof's recommended retrieval practice.</p>
+<div class="pset">
+  <div class="q"><span class="qn">R1.</span> The four ways to describe a correlation? <details><summary></summary><div class="ans">Direction, shape, strength, magnitude.</div></details></div>
+  <div class="q"><span class="qn">R2.</span> r = COV divided by what? <details><summary></summary><div class="ans">SD<sub>x</sub> · SD<sub>y</sub>.</div></details></div>
+  <div class="q"><span class="qn">R3.</span> Which scale combo means Pearson? <details><summary></summary><div class="ans">Both interval/ratio.</div></details></div>
+  <div class="q"><span class="qn">R4.</span> Curvilinear data: which coefficient, and why not Pearson? <details><summary></summary><div class="ans">Spearman rho; Pearson underestimates curvilinear relationships.</div></details></div>
+  <div class="q"><span class="qn">R5.</span> What does the slope b tell you? <details><summary></summary><div class="ans">The change in Y for each 1-unit increase in X.</div></details></div>
+  <div class="q"><span class="qn">R6.</span> When can't you make a prediction? <details><summary></summary><div class="ans">When the value is outside the observed range: no extrapolation, write NA.</div></details></div>
+  <div class="q"><span class="qn">R7.</span> r² is the proportion of variability that is what? <details><summary></summary><div class="ans">Explained (predicted) by X. 1 − r² is unexplained.</div></details></div>
+  <div class="q"><span class="qn">R8.</span> Heteroscedasticity does what to r and the slope? <details><summary></summary><div class="ans">Lowers r (bigger SD in the denominator) and flattens the slope; switch to Spearman.</div></details></div>
+  <div class="q"><span class="qn">R9.</span> Does sample size affect r? <details><summary></summary><div class="ans">No; N cancels out.</div></details></div>
+  <div class="q"><span class="qn">R10.</span> The fast formula for SD<sub>Y−Y′</sub>? <details><summary></summary><div class="ans">SD<sub>y</sub> · √(1 − r²).</div></details></div>
+</div>
+
+<h2 class="sec" id="cheat"><span class="n">20</span>Your cheat sheet <a class="toplink" href="#plan">↑ top</a></h2>
+<p>Your one double-sided 8.5×11 cheat sheet is a separate file, built print-ready in black and white. It leads with the formulas the prof's sheet leaves out (mean, SS, SD), then the calculation pipeline in order, the "which correlation" table, and the concept triggers.</p>
+<div class="box tip"><span class="lab">Your prof's advice, worth taking</span> She recommends handwriting your cheat sheet: copying it out is itself studying, and she says students who lean on a printed sheet to skip studying tend to do worse. The printed version is a perfectly legal master to copy from, so if you have time tonight, writing your own version by hand once is a strong final review pass.</div>
+
+<footer>
+  <p>Built from your PSYC 300A course files: the Topic 4 and 5 slides, Homework 4 and 5 with answer keys, the Try It At Home set, and the Midterm 2 Guide. Every formula, example, and number traces to those materials and was checked against the prof's answer keys. Sanity-check anything against your own notes, but nothing here is invented.</p>
+  <p>Good luck tomorrow. Walk in, build the table, show every step.</p>
+</footer>
+</main>
+</div>
+</body>
+</html>
